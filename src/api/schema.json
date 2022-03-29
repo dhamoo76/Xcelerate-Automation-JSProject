@@ -1,0 +1,434 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "TemplateApi",
+      "version": "v1"
+    },
+    "paths": {
+      "/api/v1/connections": {
+        "get": {
+          "tags": [
+            "Connections"
+          ],
+          "parameters": [
+            {
+              "name": "$skip",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "$top",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "$select",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$filter",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$orderby",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$count",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$search",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$expand",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.ConnectionFeatures.GetConnectionListQuery+Response"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.ConnectionFeatures.GetConnectionListQuery+Response"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.ConnectionFeatures.GetConnectionListQuery+Response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/filematcher": {
+        "post": {
+          "tags": [
+            "FileMatcher"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery+Request"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery+Request"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery+Request"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/payloaddefinitions": {
+        "get": {
+          "tags": [
+            "PayloadDefinitions"
+          ],
+          "parameters": [
+            {
+              "name": "$skip",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "$top",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "$select",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$filter",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$orderby",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$count",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$search",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "$expand",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+Response"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+Response"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+Response"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Xcelerate.ETL.Application.Features.ConnectionFeatures.GetConnectionListQuery+ConnectionListDto": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "clientId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "protocolTypeId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "protocolTypeName": {
+              "type": "string",
+              "nullable": true
+            },
+            "url": {
+              "type": "string",
+              "nullable": true
+            },
+            "folderPath": {
+              "type": "string",
+              "nullable": true
+            },
+            "userName": {
+              "type": "string",
+              "nullable": true
+            },
+            "password": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Xcelerate.ETL.Application.Features.ConnectionFeatures.GetConnectionListQuery+Response": {
+          "type": "object",
+          "properties": {
+            "results": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.ConnectionFeatures.GetConnectionListQuery+ConnectionListDto"
+              },
+              "nullable": true
+            },
+            "skip": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "top": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "Xcelerate.ETL.Application.Features.FileMatchingFeatures.FileMatchQuery+Request": {
+          "type": "object",
+          "properties": {
+            "connectionId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "fileName": {
+              "type": "string",
+              "nullable": true
+            },
+            "fileId": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+FileTypeListDto": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "pattern": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+PayloadDefinitionListDto": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "clientId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "engagementId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "projectId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "referenceListId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "connectionId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "connectionName": {
+              "type": "string",
+              "nullable": true
+            },
+            "notificationRecipients": {
+              "type": "string",
+              "nullable": true
+            },
+            "workflows": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+WorkflowListDto"
+              },
+              "nullable": true
+            },
+            "fileTypes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+FileTypeListDto"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+Response": {
+          "type": "object",
+          "properties": {
+            "results": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+PayloadDefinitionListDto"
+              },
+              "nullable": true
+            },
+            "skip": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "top": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Xcelerate.ETL.Application.Features.PayloadDefinitionFeatures.GetPayloadDefinitionListQuery+WorkflowListDto": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
